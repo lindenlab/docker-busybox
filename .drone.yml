@@ -1,0 +1,7 @@
+image: registry.docker/buildpack-deps:scm
+volumes:
+  - /var/run/docker.sock
+script:
+  - TARMAKER=buildroot ./mkrootfs.sh tarmaker-buildroot
+  - docker build -t registry.docker/busybox .
+  - docker push -t registry.docker/busybox .
