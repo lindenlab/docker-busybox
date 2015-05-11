@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM registry.docker/buildpack-deps
 RUN apt-get update -q
 RUN apt-get install -qy busybox-static
 RUN mkdir /rootfs

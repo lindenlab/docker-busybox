@@ -1,11 +1,11 @@
-FROM ubuntu:14.04
+FROM registry.docker/buildpack-deps
 # This will make it easier to upgrade to the next version of buildroot.
 # You might have to also update the busybox version at the end of this file!
 ENV BUILDROOT_VERSION 2015.02
 # This will get rid of a build warning related to 'tput'.
 ENV TERM dumb
 RUN apt-get update -q
-RUN apt-get install -qy wget build-essential libncurses-dev rsync unzip bc
+RUN apt-get install -qy wget build-essential libncurses-dev rsync unzip bc cpio
 # Buildroot needs Python. Let's git it!
 RUN which python || ln /usr/bin/python3 /usr/bin/python
 # Let's make wget output a bit less verbose.
